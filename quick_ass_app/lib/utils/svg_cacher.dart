@@ -1,3 +1,4 @@
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SvgCache {
   Future<void> cacheIcons() async {
