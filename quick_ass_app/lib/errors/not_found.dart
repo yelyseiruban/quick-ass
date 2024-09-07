@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_ass_app/constants/colors.dart';
-import 'package:quick_ass_app/constants/image.uri.dart';
+import 'package:quick_ass_app/constants/image_uri.dart';
 import 'package:quick_ass_app/widgets/buttons/primary_button.dart';
 
 class NotFound extends StatelessWidget {

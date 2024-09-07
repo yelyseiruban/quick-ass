@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quick_ass_app/constants/image.uri.dart';
+import 'package:quick_ass_app/constants/image_uri.dart';
 import 'package:quick_ass_app/services/package.dart';
 import 'package:quick_ass_app/providers/connection_provider.dart';
 
