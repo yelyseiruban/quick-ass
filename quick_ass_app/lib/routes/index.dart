@@ -1,10 +1,13 @@
 
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:quick_ass_app/routes/constants.dart';
 import 'package:quick_ass_app/screens/screens.dart';
+final navigatorKey = GlobalKey<NavigatorState>();
 
 final router = GoRouter(
+  navigatorKey: navigatorKey,
   initialLocation: '/',
   routes: [
     GoRoute(

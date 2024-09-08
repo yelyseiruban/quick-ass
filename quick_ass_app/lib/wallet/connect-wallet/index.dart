@@ -43,11 +43,13 @@ class _ConnectWalletButtonState extends State<ConnectWalletButton> {
   }
 
   Future<void> connectWallet(String deepLink) async {
-    final web3app = context.read<ConnectionProvider>().web3app;
+    Web3App? web3app = context.read<ConnectionProvider>().web3app;
     if (web3app == null) {
       await _initWalletConnect();
+      if (mounted) {
+        web3app = context.read<ConnectionProvider>().web3app;
+      }
     }
-
     final connectResponse = await web3app!.connect(
       optionalNamespaces: {
         'eip155': const RequiredNamespace(
@@ -152,8 +154,9 @@ class _ConnectWalletButtonState extends State<ConnectWalletButton> {
         });
       }).catchError((error) {
         if (mounted) {
-          context.read<ConnectionProvider>().setStatusString('❌ connection error');
+          context.read<ConnectionProvider>().setStatusString('❌ connection error $error');
         }
+        throw error;
       });
     final position = await determinePosition();
     log(position.latitude.toString());

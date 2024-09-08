@@ -8,7 +8,7 @@ function areLocationsClose(location1, location2, threshold = 4014) {
 
     // Calculate the offsets in meters
     const dn = (location2.lat - location1.lat) * R;
-    const de = (location2.lon - location1.lon) * (R * Math.cos(toRadians(location1.lat)));
+    const de = (location2.lng - location1.lng) * (R * Math.cos(toRadians(location1.lat)));
 
     // Calculate the distance between the two points
     const distance = Math.sqrt(dn * dn + de * de);
@@ -19,8 +19,8 @@ function areLocationsClose(location1, location2, threshold = 4014) {
 }
 
 // Example usage:
-const location1 = { lat: 51.0, lon: 0.0 };
-const location2 = { lat: 51.0, lon: 0.001 }; // Change this value to test
+const location1 = { lat: 51.0, lng: 0.0 };
+const location2 = { lat: 51.0, lng: 0.001 }; // Change this value to test
 
 const areClose = areLocationsClose(
     location1, location2
