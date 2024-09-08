@@ -23,15 +23,11 @@ class RootScreen extends StatelessWidget {
           if (connectionSnapshot.connectionState == ConnectionState.active) {
             final status = connectionSnapshot.data;
             final hasConnection = status == InternetConnectionStatus.connected;
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              Provider.of<ConnectionProvider>(context, listen: false)
-                  .setConnection(hasConnection);
-            });
             if (hasConnection) {
               Future.microtask(() async {
                 await Future.wait([
-                  Package().load(),
-                  SvgCache().cacheIcons(),
+                  // Package().load(),
+                  // SvgCache().cacheIcons(),
                 ]);
               });
             }
@@ -39,7 +35,7 @@ class RootScreen extends StatelessWidget {
           return FutureBuilder<bool>(
             future: authProvider.authentiacted(),
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting || connectionSnapshot.data == InternetConnectionStatus.disconnected) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Splash();
               } else if (snapshot.hasData && snapshot.data == true) {
                 return const Home();

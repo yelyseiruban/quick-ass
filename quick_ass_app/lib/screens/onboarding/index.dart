@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:quick_ass_app/constants/icons_uri.dart';
 import 'package:quick_ass_app/constants/page_style.dart';
 import 'package:quick_ass_app/routes/constants.dart';
+import 'package:quick_ass_app/screens/connect-wallet/index.dart';
 import 'package:quick_ass_app/themes/index.dart';
 import 'package:quick_ass_app/widgets/buttons/primary_button.dart';
 import 'package:quick_ass_app/widgets/italic_text.dart';
@@ -48,12 +49,7 @@ class Onboarding extends StatelessWidget {
                     const SizedBox(
                       height: 12,
                     ),
-                    PrimaryButton(
-                      text: 'connect wallet',
-                      onPressed: () {
-                        context.goNamed(importWallet);
-                      }
-                    )
+                    ConnectWallet()
                   ],
                 ),
               ),

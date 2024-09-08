@@ -2,14 +2,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_ass_app/controllers/shared_gradient_controller.dart';
+import 'package:quick_ass_app/providers/auth_provider.dart';
+import 'package:quick_ass_app/providers/connection_provider.dart';
 import 'package:quick_ass_app/routes/index.dart';
 import 'package:quick_ass_app/themes/index.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
+  await dotenv.load(fileName: ".env");
   runApp(
     MultiProvider(
       providers: [
-        // TBD tbc
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => ConnectionProvider())
       ],
       child: const QuickAssApp(),
     ),

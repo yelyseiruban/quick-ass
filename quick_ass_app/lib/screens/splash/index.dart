@@ -11,7 +11,6 @@ class Splash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isConnected = context.watch<ConnectionProvider>().isConnected;
     return Scaffold(
         body: SafeArea(
           child: Center(
@@ -36,11 +35,6 @@ class Splash extends StatelessWidget {
                 Text(
                   'Version ${Package().info.version}',
                 ),
-                Text(
-                    isConnected
-                        ? ''
-                        : 'No internet connection',
-                )
               ],
             ),
           ),
