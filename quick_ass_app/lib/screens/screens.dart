@@ -1,4 +1,3 @@
-export 'connect-wallet/index.dart';
 export 'onboarding/index.dart';
 export 'home/index.dart';
 export 'import-wallet/index.dart';

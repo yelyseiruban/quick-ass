@@ -26,8 +26,8 @@ class RootScreen extends StatelessWidget {
             if (hasConnection) {
               Future.microtask(() async {
                 await Future.wait([
-                  // Package().load(),
-                  // SvgCache().cacheIcons(),
+                  Package().load(),
+                  SvgCache().cacheIcons(),
                 ]);
               });
             }

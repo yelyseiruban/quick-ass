@@ -29,11 +29,13 @@ class Splash extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  Package().info.appName,
+                  'Package().info.appName'
+                  // Package().info.appName,
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Version ${Package().info.version}',
+                  'Version'
+                  // 'Version ${Package().info.version}',
                 ),
               ],
             ),

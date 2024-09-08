@@ -1,15 +1,25 @@
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_ass_app/controllers/shared_gradient_controller.dart';
 import 'package:quick_ass_app/providers/auth_provider.dart';
 import 'package:quick_ass_app/providers/connection_provider.dart';
 import 'package:quick_ass_app/routes/index.dart';
+import 'package:quick_ass_app/services/package.dart';
 import 'package:quick_ass_app/themes/index.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:shake/shake.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
+  await Package().init();
+  ShakeDetector detector = ShakeDetector.autoStart(
+      onPhoneShake: () {
+        log('we are shaking ))');
+      }
+  );
   runApp(
     MultiProvider(
       providers: [
